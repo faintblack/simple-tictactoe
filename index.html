@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Tic Tac Toe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container py-3">
+      <div class="row">
+        <h1>Simple Tic Tac Toe</h1>
+      </div>
+      <div class="row py-3">
+        <form id="setup-form" class="row needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="gridSize" class="form-label">Grid Size</label>
+            <input
+              type="number"
+              min="3"
+              class="form-control"
+              id="gridSize"
+              placeholder="Input the grid size. Ex : 3"
+              value="3"
+              required
+            />
+            <!-- <div class="valid-feedback">Looks good!</div> -->
+            <div class="invalid-feedback">
+              Please provide a valid grid size, minimum value is 3.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="winningCondition" class="form-label"
+              >Winning Condition</label
+            >
+            <input
+              type="number"
+              min="3"
+              class="form-control"
+              id="winningCondition"
+              placeholder="Input the winning condition. Ex : 3"
+              value="3"
+              required
+            />
+            <!-- <div class="valid-feedback">Looks good!</div> -->
+            <div class="invalid-feedback">
+              Please provide a valid winning condition, minimum value is 3.
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Play Game</button>
+          </div>
+        </form>
+      </div>
+      <div id="square-container" class="row px-2"></div>
+      <div id="info-parent" class="row py-2">
+        <h6 id="info">Current player : X</h6>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
