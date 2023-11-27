@@ -3,6 +3,11 @@
   height: 50px;
 }
 
+.winning-square {
+  background: #000fff !important;
+  color: white !important;
+}
+
 #square-container {
   width: fit-content;
 }

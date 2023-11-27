@@ -6,6 +6,7 @@ let winningPattern = new Array();
 
 function checkStraightPattern(x, y, val, type, isReverse) {
   let ref = y;
+  let boxChecked = [];
 
   if (type === "vertical") {
     ref = x;
@@ -18,6 +19,9 @@ function checkStraightPattern(x, y, val, type, isReverse) {
       let source = squareValue[x][i];
       if (type === "vertical") {
         source = squareValue[i][y];
+        boxChecked.push([i, y])
+      } else {
+        boxChecked.push([x, i])
       }
       valChecker = valChecker && source === val;
     }
@@ -26,23 +30,31 @@ function checkStraightPattern(x, y, val, type, isReverse) {
       let source = squareValue[x][i];
       if (type === "vertical") {
         source = squareValue[i][y];
+        boxChecked.push([i, y])
+      } else {
+        boxChecked.push([x, i])
       }
       valChecker = valChecker && source === val;
     }
   }
 
   if (valChecker) {
+    boxChecked.map((val, idx) => {
+      document.getElementById(`square-${val[0]}-${val[1]}`).classList.add("winning-square")
+    })
     return true;
   }
 }
 
 function checkDiagonalPattern(x, y, val, direction) {
   let valChecker = true;
+  let boxChecked = [];
 
   switch (direction) {
     case "bottom-right":
       for (let i = x; i <= x + (winningCondition - 1); i++) {
         valChecker = valChecker && squareValue[i][i] === val;
+        boxChecked.push([i, i])
       }
       break;
 
@@ -50,6 +62,7 @@ function checkDiagonalPattern(x, y, val, direction) {
       let j = 0;
       for (let i = x; i >= x - (winningCondition - 1); i--) {
         valChecker = valChecker && squareValue[i][y - j] === val;
+        boxChecked.push([i, y - j])
         j++;
       }
       break;
@@ -58,6 +71,7 @@ function checkDiagonalPattern(x, y, val, direction) {
       let k = 0;
       for (let i = x; i <= x + (winningCondition - 1); i++) {
         valChecker = valChecker && squareValue[i][y - k] === val;
+        boxChecked.push([i, y - k])
         k++;
       }
       break;
@@ -66,6 +80,7 @@ function checkDiagonalPattern(x, y, val, direction) {
       let l = 0;
       for (let i = x; i >= x - (winningCondition - 1); i--) {
         valChecker = valChecker && squareValue[i][y + l] === val;
+        boxChecked.push([i, y + l])
         l++;
       }
       break;
@@ -75,6 +90,9 @@ function checkDiagonalPattern(x, y, val, direction) {
   }
 
   if (valChecker) {
+    boxChecked.map((val, idx) => {
+      document.getElementById(`square-${val[0]}-${val[1]}`).classList.add("winning-square")
+    })
     return true;
   }
 }
