@@ -190,7 +190,7 @@ function setValue(row, col) {
         let tmpRowVal = new Array();
         for (let i = 0; i < gridSize; i++) {
           let squareRow = document.createElement("div");
-          squareRow.setAttribute("class", "row");
+          squareRow.setAttribute("class", "squareBoxRowParent");
 
           let tmpColVal = new Array();
           for (let j = 0; j < gridSize; j++) {
